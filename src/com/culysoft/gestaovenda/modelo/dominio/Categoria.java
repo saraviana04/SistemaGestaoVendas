@@ -5,7 +5,7 @@ public class Categoria {
     private String nome;
     private String descrição;
 
-    public Categoria(){
+    public Categoria(Long o, String bebida_java, String insercao_no_intellij){
 
             }
     public Categoria(long id, String nome, String descrição) {
