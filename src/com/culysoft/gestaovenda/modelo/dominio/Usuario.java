@@ -61,7 +61,7 @@ public class Usuario {
         this.usuario = usuario;
     }
 
-    public Perfil getPerfil() {
+    public String getPerfil() {
         return perfil;
     }
 
