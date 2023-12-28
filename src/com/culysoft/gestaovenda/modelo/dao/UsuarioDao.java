@@ -2,10 +2,17 @@ package com.culysoft.gestaovenda.modelo.dao;
 
 import com.culysoft.gestaovenda.modelo.Conexao.Conexao;
 import com.culysoft.gestaovenda.modelo.Conexao.ConexaoMysql;
+import com.culysoft.gestaovenda.modelo.dominio.Perfil;
 import com.culysoft.gestaovenda.modelo.dominio.Usuario;
+import jdk.internal.jimage.ImageStream;
 
+import java.lang.reflect.Type;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UsuarioDao {
 
@@ -69,6 +76,48 @@ public class UsuarioDao {
         }
 
     }
+
+    public List<Usuario> buscarTodosUsuarios() {
+
+        String sql = "SELECT * FROM usuario";
+        List<Usuario> usuarios = new ArrayList<>();
+
+
+
+        try {
+            ResultSet result = conexao.obterConexao().prepareStatement(sql).executeQuery();
+            while (result.next()) {
+
+                usuarios.add(getUsuario(result));
+
+            }
+        } catch (SQLException e) {
+            System.out.println(String.format("Error", e.getMessage()));
+
+
+        }
+        return usuarios;
+    }
+
+    private Usuario getUsuario(ResultSet result) throws SQLException {
+        Usuario usuario = new Usuario();
+
+        usuario.setId(result.getLong("id"));
+        usuario.setNome(result.getString("nome"));
+        usuario.setUsuario(result.getString("usuario"));
+        usuario.setSenha(result.getString("Senha"));
+        usuario.setPerfil(result.getObject("perfil", Perfil.class));
+        usuario.setEstado(result.getBoolean("Estado"));
+        usuario.setDataHoraCriacao( result.getObject("Data Hora Criacao",LocalDateTime.class));
+        usuario.setUltimoLogin(result.getObject("Ultimo login", LocalDateTime.class));
+
+        return usuario;
+
+
+
+    }
+
+
 
 }
 
