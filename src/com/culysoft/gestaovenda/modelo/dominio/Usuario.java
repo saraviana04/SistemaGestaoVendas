@@ -1,4 +1,5 @@
 package com.culysoft.gestaovenda.modelo.dominio;
+
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -13,12 +14,12 @@ public class Usuario {
     private LocalDateTime dataHoraCriacao;
     private LocalDateTime ultimoLogin;
 
-    public Usuario(){
+    public Usuario(int i, String elson_viana, String s, String viana, Perfil padrao, Object usuario, Object perfil){
         this.estado = true;
 
     }
 
-    public Usuario(LocalDateTime dataHoraCriacao, LocalDateTime ultimoLogin,long id, String nome, String senha, String usuario, Perfil perfil) {
+    public Usuario() {
         this.id = id;
         this.nome = nome;
         this.senha = senha;
@@ -61,7 +62,7 @@ public class Usuario {
         this.usuario = usuario;
     }
 
-    public String getPerfil() {
+    public Perfil getPerfil() {
         return perfil;
     }
 
@@ -112,6 +113,10 @@ public class Usuario {
     public void mudarEstado() {
         this.estado =! this.estado;
 
+    }
+
+    public String salvar(Usuario usuario) {
+        return null;
     }
 
 }

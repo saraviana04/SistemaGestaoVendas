@@ -11,11 +11,14 @@ public class Main {
 
         Conexao conexao = new ConexaoMysql();
 
-        String sql = "insert categoria (id, nome, descricao) VALUES (?,?,?)";
+        String sql = "insert usuario (id, nome, username,senha) VALUES (?,?,?,?)";
         try (PreparedStatement preparedStatement = conexao.obterConexao().prepareStatement(sql)) {
-            preparedStatement.setInt(1, 2);
-            preparedStatement.setString(2, "Suco");
-            preparedStatement.setString(3, "Suco de acai");
+            preparedStatement.setInt(1, 5);
+            preparedStatement.setString(2, "Alda Fontineli");
+            preparedStatement.setString(3, "Fon");
+            preparedStatement.setString(4, "4321");
+           /* preparedStatement.setObject(5, "ADMIN");*/
+
             int linhasAfetadas = preparedStatement.executeUpdate();
             System.out.println(linhasAfetadas);
         } catch (SQLException e) {
