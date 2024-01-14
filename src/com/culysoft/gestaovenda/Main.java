@@ -11,7 +11,7 @@ public class Main {
 
         Conexao conexao = new ConexaoMysql();
 
-        String sql = "insert usuario (id, nome, username,senha) VALUES (?,?,?,?)";
+        /*String sql = "insert usuario (id, nome, username,senha) VALUES (?,?,?,?)";
         try (PreparedStatement preparedStatement = conexao.obterConexao().prepareStatement(sql)) {
             preparedStatement.setInt(1, 5);
             preparedStatement.setString(2, "Alda Fontineli");
@@ -22,9 +22,9 @@ public class Main {
             int linhasAfetadas = preparedStatement.executeUpdate();
             System.out.println(linhasAfetadas);
         } catch (SQLException e) {
-            e.printStackTrace();
+            e.printStackTrace();*/
         }
     }
 
-}
+
 
