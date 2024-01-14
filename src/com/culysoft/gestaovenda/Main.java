@@ -17,7 +17,7 @@ public class Main {
             preparedStatement.setString(2, "Alda Fontineli");
             preparedStatement.setString(3, "Fon");
             preparedStatement.setString(4, "4321");
-           /* preparedStatement.setObject(5, "ADMIN");*/
+            preparedStatement.setObject(5, "ADMIN");
 
             int linhasAfetadas = preparedStatement.executeUpdate();
             System.out.println(linhasAfetadas);

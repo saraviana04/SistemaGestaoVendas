@@ -119,4 +119,7 @@ public class Usuario {
         return null;
     }
 
+    public boolean isEstado() {
+        return estado;
+    }
 }
